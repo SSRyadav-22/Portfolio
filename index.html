@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S Sai Rahual - Cyber Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Google Fonts for a more futuristic/techy font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">S Sai Rahual</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content animate-on-scroll fade-in-up">
+                <h1 class="neon-text-effect">S Sai Rahual</h1>
+                <p class="subtitle-effect"> Creative Problem Solving Final Year Student In B.E AIML </p>
+                <a href="#portfolio" class="cta-button"><span>Explore My Universe</span></a>
+            </div>
+            <div class="scroll-down-indicator">
+                <span></span><span></span><span></span>
+            </div>
+        </section>
+
+                <section id="about" class="animate-on-scroll fade-in">
+            <h2>// About Me</h2>
+            <div class="about-content">
+                <div class="about-image animate-on-scroll slide-in-left">
+                    <!-- 
+                        IMPORTANT: Make sure SSR22.jpeg is in an 'images' folder 
+                        next to your index.html file for this path to work!
+                        Or, if it's in the same folder as index.html, use src="SSR22.jpeg"
+                    -->
+                    <img src="images/SSR22.jpeg" alt="S Sai Rahual profile picture">
+                    <!-- The div.image-placeholder has been removed as we are using the img tag -->
+                </div>
+                <div class="about-text animate-on-scroll slide-in-right">
+                    <p>While I'm proficient in the foundational frontend technologies of HTML,  CSS, and JavaScript, I recognize the evolving landscape where AI can rapidly generate initial code. My approach is to leverage these AI tools for speed and efficiency. Then, thanks to my solid understanding of the underlying principles, I can quickly step in to refine, customize, and perfect the frontend to meet precise creative and functional requirements, ensuring the final product is both robust and polished.</p>
+                    <p>Beyond the frontend, my technical toolkit is strong in Python, particularly for data analytics where I can uncover insights and drive data-informed decisions. I'm actively expanding my expertise into the exciting realms of Agentic AI and already possess a decent working knowledge of Generative AI, constantly exploring its applications and potential to build intelligent, next-generation solutions.</p>
+                    <!-- 
+                        IMPORTANT: Make sure Sai_Rahual_Resume.pdf is in a 'docs' folder 
+                        next to your index.html file for this path to work!
+                        Or, if it's in the same folder as index.html, use href="Sai_Rahual_Resume.pdf"
+                    -->
+                    <a href="docs/Sai_Rahual_Resume.pdf" target="_blank" class="cta-button secondary"><span>Download Dossier (CV)</span></a>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio" class="animate-on-scroll fade-in">
+            <h2>// My Creations_</h2>
+            <p_text_to_replace>[Brief intro to your portfolio: e.g., "A glimpse into projects where innovation meets execution."]</p_text_to_replace>
+            <div class="project-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card animate-on-scroll pop-in">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <!-- <img src="path/to/project1-vibrant.jpg" alt="Project 1 Title"> -->
+                            <div class="project-image-placeholder">[Project 1 Image]</div>
+                            <h3>[Project 1 Title]</h3>
+                        </div>
+                        <div class="card-back">
+                            <h4>[Project 1 Title]</h4>
+                            <p_text_to_replace>[Brief desc. Tech stack. Impact.]</p_text_to_replace>
+                            <p><strong>Tech:</strong> [Python, React, AWS]</p>
+                            <div class="project-links">
+                                <a href="[GitHub Link]" target="_blank">GitHub</a>
+                                <a href="[Live Demo]" target="_blank">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card animate-on-scroll pop-in" style="animation-delay: 0.2s;">
+                     <div class="card-inner">
+                        <div class="card-front">
+                            <div class="project-image-placeholder">[Project 2 Image - Design Focus]</div>
+                            <h3>[Project 2 Title - Creative]</h3>
+                        </div>
+                        <div class="card-back">
+                            <h4>[Project 2 Title]</h4>
+                            <p_text_to_replace>[Creative brief. Tools used. Outcome.]</p_text_to_replace>
+                            <p><strong>Skills:</strong> [UI/UX, Branding]</p>
+                            <div class="project-links">
+                                <a href="[Behance/Case Study Link]" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Add more project cards, varying animation-delay for staggered effect -->
+            </div>
+        </section>
+
+        <section id="skills" class="animate-on-scroll fade-in">
+            <h2>// Arsenal_</h2>
+            <p_text_to_replace>[A brief intro to your skills section. e.g., "The tools and technologies I command."]</p_text_to_replace>
+            <div class="skills-container">
+                <div class="skill-category animate-on-scroll pop-in">
+                    <h3>Dev &lt;/&gt;</h3>
+                    <ul><li>[Skill]</li><li>[Skill]</li></ul>
+                </div>
+                <div class="skill-category animate-on-scroll pop-in" style="animation-delay: 0.1s;">
+                    <h3>Design ✨</h3>
+                    <ul><li>[Skill]</li><li>[Skill]</li></ul>
+                </div>
+                <div class="skill-category animate-on-scroll pop-in" style="animation-delay: 0.2s;">
+                    <h3>Comms ✍️</h3>
+                    <ul><li>[Skill]</li><li>[Skill]</li></ul>
+                </div>
+                <div class="skill-category animate-on-scroll pop-in" style="animation-delay: 0.3s;">
+                    <h3>Strategy 🚀</h3>
+                    <ul><li>[Skill]</li><li>[Skill]</li></ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="animate-on-scroll fade-in">
+            <h2>// Services_</h2>
+            <p_text_to_replace>[If you offer freelance services, describe them here with a punch.]</p_text_to_replace>
+            <div class="services-grid">
+                <div class="service-item animate-on-scroll pop-in">
+                    <h4>[Service 1]</h4>
+                    <p_text_to_replace>[Description]</p_text_to_replace>
+                </div>
+                <!-- Add more service items -->
+            </div>
+        </section>
+
+        <section id="contact" class="animate-on-scroll fade-in">
+            <h2>// Connect_</h2>
+            <p>Let's build something amazing or discuss the future. Reach out.</p>
+            <div class="contact-info">
+                 <p><a href="mailto:ssryadav22@gmail.com">ssryadav22@gmail.com</a></p>
+                 <p><a href="https://www.linkedin.com/in/s-sai-rahual-338222312/" target="_blank">LinkedIn</a></p>
+                 <p><a href="https://github.com/SSRyadav-22" target="_blank">GitHub</a></p>
+            </div>
+            <!-- You can add a simple form here too, styled similarly -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> S. Sai Rahual. System Online.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
