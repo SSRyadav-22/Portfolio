@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S Sai Rahual - Cyber Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Optional: Google Fonts for a more futuristic/techy font -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
 </head>
 <body>
     <header>
@@ -40,39 +44,27 @@
             </div>
         </section>
 
-                <section id="about" class="animate-on-scroll fade-in">
+        <section id="about" class="animate-on-scroll fade-in">
             <h2>// About Me</h2>
             <div class="about-content">
                 <div class="about-image animate-on-scroll slide-in-left">
-                    <!-- 
-                        IMPORTANT: Make sure SSR22.jpeg is in an 'images' folder 
-                        next to your index.html file for this path to work!
-                        Or, if it's in the same folder as index.html, use src="SSR22.jpeg"
-                    -->
                     <img src="images/SSR22.jpeg" alt="S Sai Rahual profile picture">
-                    <!-- The div.image-placeholder has been removed as we are using the img tag -->
                 </div>
                 <div class="about-text animate-on-scroll slide-in-right">
                     <p>While I'm proficient in the foundational frontend technologies of HTML,  CSS, and JavaScript, I recognize the evolving landscape where AI can rapidly generate initial code. My approach is to leverage these AI tools for speed and efficiency. Then, thanks to my solid understanding of the underlying principles, I can quickly step in to refine, customize, and perfect the frontend to meet precise creative and functional requirements, ensuring the final product is both robust and polished.</p>
                     <p>Beyond the frontend, my technical toolkit is strong in Python, particularly for data analytics where I can uncover insights and drive data-informed decisions. I'm actively expanding my expertise into the exciting realms of Agentic AI and already possess a decent working knowledge of Generative AI, constantly exploring its applications and potential to build intelligent, next-generation solutions.</p>
-                    <!-- 
-                        IMPORTANT: Make sure Sai_Rahual_Resume.pdf is in a 'docs' folder 
-                        next to your index.html file for this path to work!
-                        Or, if it's in the same folder as index.html, use href="Sai_Rahual_Resume.pdf"
-                    -->
                     <a href="docs/Sai_Rahual_Resume.pdf" target="_blank" class="cta-button secondary"><span>Download Dossier (CV)</span></a>
                 </div>
             </div>
         </section>
+
         <section id="portfolio" class="animate-on-scroll fade-in">
             <h2>// My Creations_</h2>
             <p_text_to_replace>[Brief intro to your portfolio: e.g., "A glimpse into projects where innovation meets execution."]</p_text_to_replace>
             <div class="project-grid">
-                <!-- Project Card 1 -->
                 <div class="project-card animate-on-scroll pop-in">
                     <div class="card-inner">
                         <div class="card-front">
-                            <!-- <img src="path/to/project1-vibrant.jpg" alt="Project 1 Title"> -->
                             <div class="project-image-placeholder">[Project 1 Image]</div>
                             <h3>[Project 1 Title]</h3>
                         </div>
@@ -87,8 +79,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Project Card 2 -->
                 <div class="project-card animate-on-scroll pop-in" style="animation-delay: 0.2s;">
                      <div class="card-inner">
                         <div class="card-front">
@@ -105,7 +95,6 @@
                         </div>
                     </div>
                 </div>
-                 <!-- Add more project cards, varying animation-delay for staggered effect -->
             </div>
         </section>
 
@@ -115,19 +104,19 @@
             <div class="skills-container">
                 <div class="skill-category animate-on-scroll pop-in">
                     <h3>Dev &lt;/&gt;</h3>
-                    <ul><li>[Skill]</li><li>[Skill]</li></ul>
+                    <ul><li>Python</li><li>Java</li><li>C</li><li>Julia</li><li>PowerBi</li><li>Tableau</li><li>Artificial Intelligence</li><li>Machine Learning</li><li>Deep Learning</li><li>Data Analysis</li><li>Data Visualization</li><li>Data Science</li><li>Natural Language Processing</li></ul>
                 </div>
                 <div class="skill-category animate-on-scroll pop-in" style="animation-delay: 0.1s;">
                     <h3>Design ✨</h3>
-                    <ul><li>[Skill]</li><li>[Skill]</li></ul>
+                    <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>MongoDB</li><li>MySQL</li></ul>
                 </div>
                 <div class="skill-category animate-on-scroll pop-in" style="animation-delay: 0.2s;">
                     <h3>Comms ✍️</h3>
-                    <ul><li>[Skill]</li><li>[Skill]</li></ul>
+                    <ul><li>English</li><li>Hindi</li><li>Kannada</li><li>Telugu</li><li>Tamil</li></ul>
                 </div>
                 <div class="skill-category animate-on-scroll pop-in" style="animation-delay: 0.3s;">
                     <h3>Strategy 🚀</h3>
-                    <ul><li>[Skill]</li><li>[Skill]</li></ul>
+                    <ul><li>Leadership</li><li>Management</li><li>Teamwork</li><li>Communication</li><li>Problem Solving</li><li>Time Management</li><li>Decision Making</li><li>Critical Thinking</li><li>Creative Thinking</li><li>Collaboration</li></ul>
                 </div>
             </div>
         </section>
@@ -140,20 +129,19 @@
                     <h4>[Service 1]</h4>
                     <p_text_to_replace>[Description]</p_text_to_replace>
                 </div>
-                <!-- Add more service items -->
             </div>
         </section>
 
+        <!-- CORRECTED CONTACT SECTION -->
         <section id="contact" class="animate-on-scroll fade-in">
-            <h2>// Connect_</h2>
-            <p>Let's build something amazing or discuss the future. Reach out.</p>
-            <div class="contact-info">
-                 <p><a href="mailto:ssryadav22@gmail.com">ssryadav22@gmail.com</a></p>
-                 <p><a href="https://www.linkedin.com/in/s-sai-rahual-338222312/" target="_blank">LinkedIn</a></p>
-                 <p><a href="https://github.com/SSRyadav-22" target="_blank">GitHub</a></p>
+            <div id="liquid-ether-container"></div>
+            <div class="infinite-scroll-wrapper">
+                <div class="infinite-scroll-container">
+                    <!-- Cards will be dynamically added here by script.js -->
+                </div>
             </div>
-            <!-- You can add a simple form here too, styled similarly -->
         </section>
+        
     </main>
 
     <footer>
@@ -161,5 +149,31 @@
     </footer>
 
     <script src="script.js"></script>
+  <div id="contact-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+        <button id="close-modal" class="close-button">&times;</button>
+        <h2>// Get In Touch</h2>
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            
+            <input type="hidden" name="access_key" value="76790fc1-6b4f-40fd-bc03-72891c2c682c">
+
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="cta-button"><span>Send Message</span></button>
+            <p id="form-status"></p>
+        </form>
+    </div>
+</div>
 </body>
 </html>
+
