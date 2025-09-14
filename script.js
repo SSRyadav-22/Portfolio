@@ -186,14 +186,12 @@ document.addEventListener('DOMContentLoaded', () => {
         aboutObserver.observe(aboutSection);
     }
 
-    // --- CORRECTED Liquid Ether Background Effect ---
+    // --- Liquid Ether Background Effect ---
     const contactSection = document.getElementById('contact');
     const liquidEtherContainer = document.getElementById('liquid-ether-container');
 
     if (contactSection && liquidEtherContainer && typeof THREE !== 'undefined') {
         let webglManager = null;
-        let rafId = null;
-
         const contactObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 if (!webglManager) {
@@ -232,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         contactObserver.observe(contactSection);
 
-        // --- All supporting classes for the liquid effect (Faithful Translation) ---
+        // --- All supporting classes for the liquid effect ---
         const face_vert = `attribute vec3 position;uniform vec2 px;uniform vec2 boundarySpace;varying vec2 uv;precision highp float;void main(){vec3 pos=position;vec2 scale=1.0-boundarySpace*2.0;pos.xy=pos.xy*scale;uv=vec2(0.5)+(pos.xy)*0.5;gl_Position=vec4(pos,1.0);}`;
         const line_vert = `attribute vec3 position;uniform vec2 px;precision highp float;varying vec2 uv;void main(){vec3 pos=position;uv=0.5+pos.xy*0.5;vec2 n=sign(pos.xy);pos.xy=abs(pos.xy)-px*1.0;pos.xy*=n;gl_Position=vec4(pos,1.0);}`;
         const mouse_vert = `precision highp float;attribute vec3 position;attribute vec2 uv;uniform vec2 center;uniform vec2 scale;uniform vec2 px;varying vec2 vUv;void main(){vec2 pos=position.xy*scale*2.0*px+center;vUv=uv;gl_Position=vec4(pos,0.0,1.0);}`;
@@ -315,7 +313,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 for (let i = 0; i < 10; i++) {
                     const timeoutId = setTimeout(() => {
                         if (!cardElement || !cardElement.getBoundingClientRect) return;
-                        const { width, height } = cardElement.getBoundingClientRect();
+                        const {
+                            width,
+                            height
+                        } = cardElement.getBoundingClientRect();
                         const particle = document.createElement('div');
                         particle.className = 'particle';
                         particle.style.cssText = `
@@ -325,8 +326,22 @@ document.addEventListener('DOMContentLoaded', () => {
                                 box-shadow: 0 0 6px rgba(${glowColor}, 0.6);
                             `;
                         cardElement.appendChild(particle);
-                        gsap.fromTo(particle, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: 'back.out(1.7)' });
-                        gsap.to(particle, { opacity: 0, duration: 1.5 + Math.random(), ease: 'power2.out', delay: 0.5, onComplete: () => particle.remove() });
+                        gsap.fromTo(particle, {
+                            scale: 0,
+                            opacity: 0
+                        }, {
+                            scale: 1,
+                            opacity: 1,
+                            duration: 0.3,
+                            ease: 'back.out(1.7)'
+                        });
+                        gsap.to(particle, {
+                            opacity: 0,
+                            duration: 1.5 + Math.random(),
+                            ease: 'power2.out',
+                            delay: 0.5,
+                            onComplete: () => particle.remove()
+                        });
                     }, i * 50);
                     timeouts.push(timeoutId);
                 }
@@ -347,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cardElement.style.setProperty('--glow-intensity', '1');
             });
         }
-        
+
         // ===================================
         // === MODIFIED CARD CREATION LOOP ===
         // ===================================
@@ -414,47 +429,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (contactForm) {
-            contactForm.addEventListener('submit', function (e) {
+            contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const formData = new FormData(this);
+                const object = Object.fromEntries(formData);
+                const json = JSON.stringify(object);
                 formStatus.textContent = 'Sending...';
 
-                fetch(this.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw new Error('Network response was not ok.');
-                    }
-                }).then(data => {
-                    if (data.success) {
-                        formStatus.textContent = 'Message sent successfully!';
-                        formStatus.style.color = 'var(--neon-accent)';
+                fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(async (response) => {
+                        let jsonResponse = await response.json();
+                        if (response.status == 200) {
+                            formStatus.textContent = 'Message sent successfully!';
+                            formStatus.style.color = 'var(--neon-accent)';
+                        } else {
+                            console.log(response);
+                            formStatus.textContent = jsonResponse.message;
+                            formStatus.style.color = 'red';
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        formStatus.textContent = "Oops! Something went wrong.";
+                        formStatus.style.color = 'red';
+                    })
+                    .then(function() {
                         contactForm.reset();
                         setTimeout(() => {
                             closeModal();
                             formStatus.textContent = ''; // Reset status text
                         }, 2500);
-                    } else {
-                        formStatus.textContent = 'Oops! Something went wrong.';
-                        formStatus.style.color = 'red';
-                    }
-                }).catch(error => {
-                    console.error('Form submission error:', error);
-                    formStatus.textContent = 'Oops! Something went wrong.';
-                    formStatus.style.color = 'red';
-                });
+                    });
             });
         }
 
-
         // ============================================
-        // === ORIGINAL GSAP ANIMATION LOGIC (UNCHANGED) ===
+        // === GSAP ANIMATION LOGIC (WITH MOBILE FIX) ===
         // ============================================
         const divItems = gsap.utils.toArray(".infinite-scroll-item");
         if (divItems.length > 0) {
@@ -472,22 +489,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 const observer = Observer.create({
                     target: scrollContainer,
                     type: 'wheel,touch,pointer',
-                    preventDefault: true,
+                    // preventDefault: true, // REMOVED to prevent scroll trap on mobile
                     onPress: ({
                         target
                     }) => (target.style.cursor = 'grabbing'),
                     onRelease: ({
                         target
                     }) => (target.style.cursor = 'grab'),
-                    onChange: ({
-                        deltaY
-                    }) => {
-                        const move = deltaY * 1.5;
+                    // MODIFIED onChange for mobile touch inversion
+                    onChange: (self) => {
+                        // Check if the event is a touch event and invert the delta if it is
+                        const move = (self.event.type === 'touchmove' ? -self.deltaY : self.deltaY) * 1.5;
+
                         divItems.forEach(child =>
                             gsap.to(child, {
                                 duration: 0.5,
                                 ease: 'expo.out',
-                                y: `+=${-move}`,
+                                y: `+=${-move}`, // This logic can stay the same
                                 modifiers: {
                                     y: gsap.utils.unitize(wrapFn)
                                 },
